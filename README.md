@@ -28,3 +28,7 @@ services:
       - ./local/:/local
       - ./build.sh:/build.sh
 ```
+
+## Author
+
+- Hadrien Mary
