@@ -10,7 +10,7 @@ RUN apk update && \
         openssl-dev linux-headers curl git libproc libxrender-dev \
         libpng libpng-dev libjpeg-turbo libjpeg-turbo-dev icu-libs icu \
         mesa-gl mesa-dev freetype-dev sqlite-dev gstreamer1 gstreamer0.10-dev \
-        libogg-dev libvorbis-dev libbz2 && \
+        libogg-dev libvorbis-dev libbz2 gperf bison ruby flex && \
     rm -rf /var/cache/apk/* 
 
 # Choose Qt version
@@ -52,6 +52,17 @@ ENV QT_SVG_DIR /qtsvg-opensource-src-"$QT_VERSION"
 
 RUN curl -sSL $QT_SVG_SRC | tar xJ \
     && cd $QT_SVG_DIR \
+    && qmake \
+    && make install \
+    && cd /
+
+# Compile and install Qt WebKit
+
+ENV QT_WEBKIT_SRC https://download.qt.io/community_releases/"$QT_VERSION_MAJOR"/"$QT_VERSION"/qtwebkit-opensource-src-"$QT_VERSION".tar.xz
+ENV QT_WEBKIT_DIR /qtwebkit-opensource-src-"$QT_VERSION"
+
+RUN curl -sSL $QT_WEBKIT_SRC | tar xJ \
+    && cd $QT_WEBKIT_DIR \
     && qmake \
     && make install \
     && cd /
