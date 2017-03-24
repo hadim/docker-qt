@@ -2,7 +2,7 @@
 
 Compile a C++/Qt project within Docker.
 
-Qt version used is `5.7.1`.
+Qt version used is `5.6.2`.
 
 ## Usage
 
