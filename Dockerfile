@@ -11,7 +11,7 @@ RUN apk update && \
         libpng libpng-dev libjpeg-turbo libjpeg-turbo-dev icu-libs icu \
         mesa-gl mesa-dev freetype-dev sqlite-dev gstreamer1 gstreamer0.10-dev \
         libogg-dev libvorbis-dev libbz2 gperf bison ruby flex && \
-    rm -rf /var/cache/apk/* 
+    rm -rf /var/cache/apk/*
 
 # Choose Qt version
 
@@ -27,9 +27,10 @@ ENV QT_BASE_DIR /qtbase-opensource-src-"$QT_VERSION"
 RUN curl -sSL $QT_BASE_SRC | tar xJ \
     && cd $QT_BASE_DIR \
     && bash ./configure -opensource -confirm-license -static -no-accessibility -qt-sql-sqlite -no-qml-debug \
-       -no-gif -qt-doubleconversion -no-harfbuzz -openssl-linked -qt-pcre -no-pulseaudio -no-alsa \
-       -no-xkbcommon-evdev -no-xinput2 -no-xcb-xlib -no-glib -qt-xcb -no-gtk -no-compile-examples \
-       -no-dbus -nomake tools -nomake examples \
+       -no-harfbuzz -openssl-linked -qt-pcre -no-pulseaudio -no-alsa -no-dbus -nomake tools \
+       -no-xkbcommon-evdev -no-xinput2 -no-xcb-xlib -no-glib -qt-xcb -no-compile-examples -nomake examples \
+       # Only for Qt 5.7
+       #-no-gif -qt-doubleconversion -no-gtk \
     && make install
 
 ENV PATH $QT_DIST/bin:$PATH
@@ -61,11 +62,11 @@ RUN curl -sSL $QT_SVG_SRC | tar xJ \
 ENV QT_WEBKIT_SRC https://download.qt.io/community_releases/"$QT_VERSION_MAJOR"/"$QT_VERSION"/qtwebkit-opensource-src-"$QT_VERSION".tar.xz
 ENV QT_WEBKIT_DIR /qtwebkit-opensource-src-"$QT_VERSION"
 
-RUN curl -sSL $QT_WEBKIT_SRC | tar xJ \
-    && cd $QT_WEBKIT_DIR \
-    && qmake \
-    && make install \
-    && cd /
+#RUN curl -sSL $QT_WEBKIT_SRC | tar xJ \
+#    && cd $QT_WEBKIT_DIR \
+#    && qmake \
+#    && make install \
+#    && cd /
 
 # Clean compilation files
 
