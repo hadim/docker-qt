@@ -15,8 +15,8 @@ RUN apk update && \
 
 # Choose Qt version
 
-ENV QT_VERSION_MAJOR 5.6
-ENV QT_VERSION 5.6.2
+ENV QT_VERSION_MAJOR 5.7
+ENV QT_VERSION 5.7.1
 
 # Compile and install Qt Base
 
@@ -29,8 +29,7 @@ RUN curl -sSL $QT_BASE_SRC | tar xJ \
     && bash ./configure -opensource -confirm-license -static -no-accessibility -qt-sql-sqlite -no-qml-debug \
        -no-harfbuzz -openssl-linked -qt-pcre -no-pulseaudio -no-alsa -no-dbus -nomake tools \
        -no-xkbcommon-evdev -no-xinput2 -no-xcb-xlib -no-glib -qt-xcb -no-compile-examples -nomake examples \
-       # Only for Qt 5.7
-       #-no-gif -qt-doubleconversion -no-gtk \
+       -no-gif -qt-doubleconversion -no-gtk \
     && make install
 
 ENV PATH $QT_DIST/bin:$PATH
