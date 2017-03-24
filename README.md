@@ -29,6 +29,8 @@ services:
       - ./build.sh:/build.sh
 ```
 
+Launch the automatic build script `/build.sh` with `docker-compose up` or launch a bash session with `docker-compose run builder bash`.
+
 ## Author
 
 - Hadrien Mary
