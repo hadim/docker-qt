@@ -1,0 +1,1 @@
+echo "You need to set a Docker volume to /build.sh in order to build something."
