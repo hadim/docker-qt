@@ -6,8 +6,8 @@ MAINTAINER Hadrien Mary <hadrien.mary@gmail.com>
 RUN apk update && \
     apk upgrade && \
     apk --update add \
-        gcc g++ build-base cmake bash libstdc++ libxcb-dev \
-        openssl-dev linux-headers curl git libproc libxrender-dev \
+        gcc g++ build-base cmake bash libstdc++ libxcb-dev icu-dev \
+        openssl-dev linux-headers curl git libproc libxrender-dev ibexecinfo-dev \
         libpng libpng-dev libjpeg-turbo libjpeg-turbo-dev icu-libs icu \
         mesa-gl mesa-dev freetype-dev sqlite-dev gstreamer1 gstreamer0.10-dev \
         libogg-dev libvorbis-dev libbz2 gperf bison ruby flex && \
