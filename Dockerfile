@@ -45,10 +45,22 @@ RUN curl -sSL $QT_SCRIPT_SRC | tar xJ \
     && make install \
     && cd /
 
+# Compile and install Qt SVG
+
+ENV QT_SVG_SRC https://download.qt.io/official_releases/qt/"$QT_VERSION_MAJOR"/"$QT_VERSION"/submodules/qtsvg-opensource-src-"$QT_VERSION".tar.xz
+ENV QT_SVG_DIR /qtsvg-opensource-src-"$QT_VERSION"
+
+RUN curl -sSL $QT_SVG_SRC | tar xJ \
+    && cd $QT_SVG_DIR \
+    && qmake \
+    && make install \
+    && cd /
+
 # Clean compilation files
 
 RUN cd $QT_BASE_DIR && make clean \
-    && cd $QT_SCRIPT_DIR && make clean
+    && cd $QT_SCRIPT_DIR && make clean \
+    && cd $QT_SVG_DIR && make clean
 
 ADD build.sh /build.sh
 CMD ["bash", "/build.sh"]
