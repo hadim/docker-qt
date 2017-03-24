@@ -7,7 +7,7 @@ RUN apk update && \
     apk upgrade && \
     apk --update add \
         gcc g++ build-base cmake bash libstdc++ libxcb-dev icu-dev \
-        openssl-dev linux-headers curl git libproc libxrender-dev ibexecinfo-dev \
+        openssl-dev linux-headers curl git libproc libxrender-dev libexecinfo-dev \
         libpng libpng-dev libjpeg-turbo libjpeg-turbo-dev icu-libs icu \
         mesa-gl mesa-dev freetype-dev sqlite-dev gstreamer1 gstreamer0.10-dev \
         libogg-dev libvorbis-dev libbz2 gperf bison ruby flex && \
