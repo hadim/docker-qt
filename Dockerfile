@@ -15,8 +15,8 @@ RUN apk update && \
 
 # Choose Qt version
 
-ENV QT_VERSION_MAJOR 5.7
-ENV QT_VERSION 5.7.1
+ENV QT_VERSION_MAJOR 5.9
+ENV QT_VERSION 5.9.4
 
 # Compile and install Qt Base
 
