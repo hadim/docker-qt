@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.7
 MAINTAINER Hadrien Mary <hadrien.mary@gmail.com>
 
 # Install core dependencies
@@ -9,7 +9,7 @@ RUN apk update && \
         gcc g++ build-base cmake bash libstdc++ libxcb-dev icu-dev \
         openssl-dev linux-headers curl git libproc libxrender-dev libexecinfo-dev \
         libpng libpng-dev libjpeg-turbo libjpeg-turbo-dev icu-libs icu \
-        mesa-gl mesa-dev freetype-dev sqlite-dev gstreamer1 gstreamer0.10-dev \
+        mesa-gl mesa-dev freetype-dev sqlite-dev gstreamer gstreamer0.10-dev \
         libogg-dev libvorbis-dev libbz2 gperf bison ruby flex && \
     rm -rf /var/cache/apk/*
 
@@ -26,6 +26,7 @@ ENV QT_BASE_DIR /qtbase-opensource-src-"$QT_VERSION"
 
 RUN curl -sSL $QT_BASE_SRC | tar xJ \
     && cd $QT_BASE_DIR \
+    && bash ./configure --help \
     && bash ./configure -opensource -confirm-license -static -no-accessibility -qt-sql-sqlite -no-qml-debug \
        -no-harfbuzz -openssl-linked -qt-pcre -no-pulseaudio -no-alsa -no-dbus -nomake tools \
        -no-xkbcommon-evdev -no-xinput2 -no-xcb-xlib -no-glib -qt-xcb -no-compile-examples -nomake examples \
