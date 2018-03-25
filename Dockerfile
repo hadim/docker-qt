@@ -3,15 +3,14 @@ MAINTAINER Hadrien Mary <hadrien.mary@gmail.com>
 
 # Install core dependencies
 
-RUN apk update && \
-    apk upgrade && \
-    apk --update add \
+RUN apt-get update && \
+    apt-get -y install -y \
         gcc g++ build-base cmake bash libstdc++ libxcb-dev icu-dev \
         openssl-dev linux-headers curl git libproc libxrender-dev libexecinfo-dev \
         libpng libpng-dev libjpeg-turbo libjpeg-turbo-dev icu-libs icu \
         mesa-gl mesa-dev freetype-dev sqlite-dev gstreamer gstreamer0.10-dev \
         libogg-dev libvorbis-dev libbz2 gperf bison ruby flex && \
-    rm -rf /var/cache/apk/*
+    rm -rf /var/lib/apt/lists/*
 
 # Choose Qt version
 
