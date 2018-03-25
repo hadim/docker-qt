@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM ubuntu
 MAINTAINER Hadrien Mary <hadrien.mary@gmail.com>
 
 # Install core dependencies
