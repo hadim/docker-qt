@@ -1,12 +1,11 @@
-FROM ubuntu
+FROM ubuntu:16.04
 MAINTAINER Hadrien Mary <hadrien.mary@gmail.com>
 
 # Install core dependencies
 
 RUN apt-get update && \
-    apt-get -y upgrade && \
     apt-get -y install -y \
-        gcc g++ build-essential cmake bash libstdc++ libxcb1-dev libicu-dev \
+        gcc g++ build-essential cmake bash libxcb1-dev libicu-dev \
         libssl-dev linux-headers-generic curl git libxrender-dev \
         libpng3 libpng-dev libjpeg-turbo8 libjpeg-turbo8-dev libicu55 libicu-dev \
         libgles2-mesa libgles2-mesa-dev libfreetype6-dev libsqlite3-dev \
