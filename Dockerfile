@@ -27,8 +27,8 @@ ENV QT_BASE_DIR /qtbase-opensource-src-"$QT_VERSION"
 RUN curl -sSL $QT_BASE_SRC | tar xJ \
     && cd $QT_BASE_DIR \
     && bash ./configure --help \
-    && bash ./configure -opensource -confirm-license -static -no-accessibility -qt-sql-sqlite -no-qml-debug \
-       -no-harfbuzz -openssl-linked -qt-pcre -no-alsa -no-dbus -nomake tools \
+    && bash ./configure -opensource -confirm-license -static -no-accessibility -sql-sqlite -sqlite -no-qml-debug \
+       -no-harfbuzz -openssl-linked -qt-pcre -no-dbus -nomake tools \
        -no-xkbcommon-evdev -no-xinput2 -no-xcb-xlib -no-glib -qt-xcb -no-compile-examples -nomake examples \
        -no-gif -qt-doubleconversion -no-gtk \
     && make install
