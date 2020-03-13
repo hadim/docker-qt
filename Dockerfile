@@ -10,8 +10,8 @@ RUN apt-get update && \
         libpng3 libpng-dev libjpeg-turbo8 libjpeg-turbo8-dev libicu55 libicu-dev \
         libgles2-mesa libgles2-mesa-dev libfreetype6-dev libsqlite3-dev \
 	libgstreamer0.10-0 libgstreamer0.10-dev \
-        libogg-dev libvorbis-dev bzip2 gperf bison ruby flex && \
-    rm -rf /var/lib/apt/lists/*
+        libogg-dev libvorbis-dev bzip2 gperf bison ruby flex
+ #   rm -rf /var/lib/apt/lists/*
 
 # Choose Qt version
 
